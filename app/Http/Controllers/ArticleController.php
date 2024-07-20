@@ -31,13 +31,6 @@ class ArticleController extends Controller
         // $article = articles::with('ratings')->find(1);
         // $ratings = $article->ratings()->avg('rating');
         // return $ratings;
-
-        $user = User::with('comments')->find(1);
-        $comments = $user->comments;
-        $commentedArticles = $comments->where('commentable_type', articles::class)->map->commentable;
-        $commentedVideos = $comments->where('commentable_type', videos::class)->map->commentable;
-        $commentedImages = $comments->where('commentable_type', images::class)->map->commentable;
-        return compact('commentedArticles', 'commentedVideos', 'commentedImages');
     }
 }
 
